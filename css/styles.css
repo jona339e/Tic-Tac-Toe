@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper{
+    min-width: 30%;
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    /* border: 1px solid #000; */
+    margin: auto;
+    text-align: center;
+}
+
+.gameboard{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-gap: 1px; */
+    /* border: 1px solid red; */
+    min-height: 80%;
+}
+
+.field{
+    border: none;
+    border: 1px solid #000;
+    font-size: xx-large;
+    
+    
+}
+
+.field:nth-child(even) {
+    background-color: rgb(123, 36, 36);
+}
+
+.field:nth-child(odd) {
+    background-color: gray;
+}
+
