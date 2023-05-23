@@ -16,7 +16,7 @@ function init(){
 getUsers().then(data => {
     let output = '';
     data.forEach(user => {
-        output += `<li>${user.name}</li>`
+        output += `<li>${user.username} | ${user.email}</li>`
     });
     document.querySelector('.display').innerHTML = output;
 })

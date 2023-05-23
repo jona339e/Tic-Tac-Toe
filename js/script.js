@@ -2,6 +2,8 @@ const gameboard = document.querySelector('.gameboard');
 const resetBtn = document.querySelector('.reset');
 const rePlayBtn = document.querySelector('.replay');
 
+const clock = document.querySelector('.clock');
+
 const player1 = document.getElementById('player1');
 const player2 = document.getElementById('player2');
 
@@ -84,6 +86,10 @@ resetBtn.addEventListener('click', () => {
             gameOver = false
             xTurn = true
             winner = ''
+            score1 = 0
+            score2 = 0
+            player1.innerText = `Player 1 Score: ${score1}`
+            player2.innerText = `Player 2 Score: ${score2}`
     })
 
 })
@@ -102,19 +108,25 @@ rePlayBtn.addEventListener('click', () => {
 
 
 function updateScore(){
-if(winner === 'X')
-{
-    score1++
-    player1.innerText = `Player 1 Score: ${score1}`
+    if(winner === 'X')
+    {
+        score1++
+        player1.innerText = `Player 1 Score: ${score1}`
 
+    }
+    else {
+        score2++
+        player2.innerText = `Player 2 Score: ${score2}`
+    }
 }
-else {
-    score2++
-    player2.innerText = `Player 2 Score: ${score2}`
+
+
+
+function showTime(){
+    clock.innerText = new Date().toLocaleTimeString()
 }
+setInterval(showTime, 1000)
 
 
-
-}
 
 init();
