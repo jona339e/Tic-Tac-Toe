@@ -80,23 +80,12 @@ return winner
 
 resetBtn.addEventListener('click', () => {
 
-    
-            newGame()
-            gameOver = false
-            xTurn = true
-            score1 = 0
-            score2 = 0
-            player1.innerText = `Player 1 Score: ${score1}`
-            player2.innerText = `Player 2 Score: ${score2}`
-
-
+        resetGame()
 })
 
 rePlayBtn.addEventListener('click', () => {
 
-            newGame()
-            gameOver = false
-            xTurn = true
+        newGame()
 })
 
 function newGame(){
@@ -105,6 +94,17 @@ function newGame(){
         fields.forEach((field) => {
             field.innerText = ''
     })
+    gameOver = false
+    xTurn = true
+}
+
+function resetGame(){
+    newGame()
+    score1 = 0
+    score2 = 0
+    player1.innerText = `Player 1 Score: ${score1}`
+    player2.innerText = `Player 2 Score: ${score2}`
+
 }
 
 function updateScore(){
