@@ -79,33 +79,33 @@ return winner
 
 
 resetBtn.addEventListener('click', () => {
-    const fields = document.querySelectorAll('.field')
+
     
-        fields.forEach((field) => {
-            field.innerText = ''
+            newGame()
             gameOver = false
             xTurn = true
-            winner = ''
             score1 = 0
             score2 = 0
             player1.innerText = `Player 1 Score: ${score1}`
             player2.innerText = `Player 2 Score: ${score2}`
-    })
+
 
 })
 
 rePlayBtn.addEventListener('click', () => {
+
+            newGame()
+            gameOver = false
+            xTurn = true
+})
+
+function newGame(){
     const fields = document.querySelectorAll('.field')
     
         fields.forEach((field) => {
             field.innerText = ''
-            gameOver = false
-            xTurn = true
-            winner = ''
     })
-
-})
-
+}
 
 function updateScore(){
     if(winner === 'X')
