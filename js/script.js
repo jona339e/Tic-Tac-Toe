@@ -1,9 +1,17 @@
 const gameboard = document.querySelector('.gameboard');
 const resetBtn = document.querySelector('.reset');
+const rePlayBtn = document.querySelector('.replay');
+
+const player1 = document.getElementById('player1');
+const player2 = document.getElementById('player2');
 
 let xTurn = true;
 let gameOver = false;
 
+let winner = '';
+
+let score1 = 0;
+let score2 = 0;
 
 
 const init = () => {
@@ -28,11 +36,13 @@ const createEvt = (fields) => {
 
             // allows x or o to be placed before I check for a winner
             setTimeout(() => {
-                if(CheckWinner() !== '') {
-                    alert(CheckWinner() + ' wins!')
+                winner = CheckWinner()
+                if(winner !== '') {
+                    alert(winner + ' wins!')
                     gameOver = true
+                    updateScore()
                 }
-            }, 1)
+            }, 0)
         })
     })
 }
@@ -73,11 +83,38 @@ resetBtn.addEventListener('click', () => {
             field.innerText = ''
             gameOver = false
             xTurn = true
+            winner = ''
+    })
+
+})
+
+rePlayBtn.addEventListener('click', () => {
+    const fields = document.querySelectorAll('.field')
+    
+        fields.forEach((field) => {
+            field.innerText = ''
+            gameOver = false
+            xTurn = true
+            winner = ''
     })
 
 })
 
 
+function updateScore(){
+if(winner === 'X')
+{
+    score1++
+    player1.innerText = `Player 1 Score: ${score1}`
 
+}
+else {
+    score2++
+    player2.innerText = `Player 2 Score: ${score2}`
+}
+
+
+
+}
 
 init();
